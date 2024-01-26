@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="main">
+
+    <div class="all-aitem">
+        <div class="header">
+            <div class="text-header">Calculator</div>
+            <div class="icon-header">
+                <div class="icon-close  icon-header-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="48"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
+                </div>
+    
+                <div class="icon-restor  icon-header-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="48"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Z"/></svg>
+                </div>
+    
+                <div class="icon-minimize  icon-header-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="48"><path d="M200-450v-60h560v60H200Z"/></svg>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="row-up">
+            <div class="left-3-item">
+                <div class="icon-bar">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="40"><path d="M140-269.231v-33.846h680v33.846H140Zm0-193.846v-33.846h680v33.846H140Zm0-193.846v-33.846h680v33.846H140Z"/></svg>
+                </div>
+    
+                <p class="text-left">
+                    Standard
+                </p>
+    
+                <div class="icon-keep">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="21" viewBox="0 -960 960 960" width="40"><path d="M178.461-200q-24.577 0-41.519-16.942Q120-233.884 120-258.461v-252.308h33.846v252.308q0 10.769 6.923 17.692t17.692 6.923h603.078q10.769 0 17.692-6.923t6.923-17.692v-443.078q0-10.769-6.923-17.692t-17.692-6.923H449.231V-760h332.308q24.577 0 41.519 16.942Q840-726.116 840-701.539v443.078q0 24.577-16.942 41.519Q806.116-200 781.539-200H178.461Zm516.437-120 24.333-24.333-180.718-179.718H675.18v-33.846H481.333v193.846h33.847v-135.667L694.898-320ZM120-600v-160h240v160H120Zm360 120Z"/></svg>
+                </div>
+            </div>
+            <div class="result-top"></div>
+            <p class="zero">0</p>
+            <div class="memory-btn">
+                <div class="memory1" style="color: rgb(167, 174, 175);">MC</div>
+                <div class="memory1" style="color: rgb(167, 174, 175);">MR</div>
+                <div class="memory">M+</div>
+                <div class="memory">M-</div>
+                <div class="memory">MS</div>
+            
+            </div>
+            </div>
+
+            <div class="button">
+                <div class="num1 sign">%</div>
+                <div class="num2 sign CE">CE</div>
+                <div class="num3 sign clear">C</div>
+                <div class="num4 sign delete"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="40"><path d="m439.897-349.641 106.257-106.256L652.41-349.641l24.77-24.256L570.257-480l106.102-106.103-24.256-24.256-105.949 106.256-106.257-106.256-24.256 24.256L522.051-480l-106.41 106.103 24.256 24.256ZM164.615-480l141.949-200.821q12.846-18.359 31.902-28.769Q357.523-720 380.034-720h356.889q23.911 0 41.186 17.275 17.276 17.276 17.276 41.186v363.078q0 23.91-17.276 41.186Q760.834-240 736.923-240H380q-22.616 0-41.218-11.179-18.603-11.18-32.218-29.539L164.615-480Zm41.641 0L338.38-293.846q6.153 8.462 16.538 14.231 10.384 5.769 21.923 5.769h360.082q9.231 0 16.923-7.692 7.693-7.692 7.693-16.923v-363.078q0-9.231-7.693-16.923-7.692-7.692-16.923-7.692H376.769q-11.538 0-21.923 5.769-10.385 5.769-16.538 14.231L206.256-480Zm555.283 0v-206.154 412.308V-480Z"/></svg></div>
+                <div class="num5 sign operatorH">&#247;</div>
+
+                <div class="num6 sign sqrt"><img
+                    class="radical"
+                    style="width: 20px;"
+                    src="data:image/png;base64,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"
+                    alt=""
+                  /></div>
+                <div class="num7 number"  value="7">7</div>
+                <div class="num8 number"  value="8">8</div>
+                <div class="num9 number"  value="9">9</div>
+                <div class="num10 sign operatorH">&#215;</div>
+
+                <div class="num11 sign pow2">x<sup>2</sup></div>
+                <div class="num12 number">4</div>
+                <div class="num13 number">5</div>
+                <div class="num14 number">6</div>
+                <div class="num15 sign operatorH" >-</div>
+
+                <div class="num16 sign pow3">x<sup>3</sup></div>
+                <div class="num17 number">1</div>
+                <div class="num18 number">2</div>
+                <div class="num19 number">3</div>
+                <div class="num20 sign operatorH">&#43;</div>
+
+                <div class="num21 sign 1x-btn">1/x</div>
+                <div class="num22 sign positiveNegative">+/-</div>
+                <div class="num23 number">0</div>
+                <div class="num24 sign dot">&#8729;</div>
+                <div class="num25 sign equals">&#61;</div>
+
+            </div>
+            <div class="history">
+                <div class="left-text">
+                  <h4 class="his-btn">History</h4>
+                  <h4 class="mem-btn">Memory</h4>
+                </div>
+                <p style=" margin-top: 40px;" class="p-history">There's no history yet</p>
+                <div class="trash">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                      </svg>
+                </div>
+            </div>
+    </div>
+<script src="func.js"></script>
+<script src="them.js"></script>
+</body>
+</html>
