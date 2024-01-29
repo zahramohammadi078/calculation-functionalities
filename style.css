@@ -338,6 +338,19 @@ body{
 
 }
 
+.newdivhistory{
+    width: 100%;
+  height: 90px;
+  
+}
+
+.newdivhistory:hover{
+
+    background-color: var(--sign-hover);
+
+}
+
+
 
 /*----------------------500--width---------*/
 @media  screen and (max-width: 500px) {

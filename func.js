@@ -80,15 +80,17 @@ function clickfunc(event) {
     }
 
     history();
+    firstNumber=""
     stop = true; //برای اینکه عدد بعد مساوی اپدیت شود
     condition = false; //برای انکه بعد وارد کردن عدد دوباره عملیات از سر گرفته شود
+
 
     zero.innerHTML = pow2; ///pow2
     resultTop.innerHTML = `sqr(${num}) `;
     zero.innerHTML = pow3; //pow3
     resultTop.innerHTML = `sqr(${num1}) `;
     zero.innerHTML = sqr; //sqr
-    resultTop.innerHTML = `sqr(${num2}) `;
+    resultTop.innerHTML = `sqrt(${num2}) `;
     zero.innerHTML = res; //1/x
     resultTop.innerHTML = `1/(${x}) `;
   } else if (event.target.classList.contains("clear")) {
@@ -163,10 +165,16 @@ function clickfunc(event) {
 
 let textHistory = document.querySelector(".p-history");
 let historydiv = document.querySelector(".history");
+let trashbtn = document.querySelector(".trash");
+
+trashbtn.addEventListener("click", Trashbtnfunc);
 
 function history() {
   textHistory.style.display = "none";
 
+  let newdiv = document.createElement("div");
+  newdiv.classList.add("newdivhistory");
+  historydiv.append(newdiv);
   let newp1 = document.createElement("p");
   newp1.classList.add("new1class");
   let newp2 = document.createElement("p");
@@ -175,6 +183,12 @@ function history() {
   newp1.innerHTML = resultTop.innerHTML + "=";
   newp2.innerHTML = zero.innerHTML;
 
-  historydiv.append(newp1);
-  historydiv.append(newp2);
+  newdiv.append(newp1);
+  newdiv.append(newp2);
+}
+
+function Trashbtnfunc() {
+  textHistory.style.display = "block";
+
+  console.log("yes");
 }
