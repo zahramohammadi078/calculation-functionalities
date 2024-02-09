@@ -1,11 +1,11 @@
-let btns = document.querySelector(".button");
+let btns = document.querySelector('.button');
 let stop = true;
-const zero = document.querySelector(".zero");
+const zero = document.querySelector('.zero');
 let firstNumber = "";
 let operator = "";
 // let secondNumber = "";
 let condition = false;
-let resultTop = document.querySelector(".result-top");
+let resultTop = document.querySelector('.result-top');
 
 btns.addEventListener("click", clickfunc);
 
@@ -41,7 +41,7 @@ function clickfunc(event) {
           result1 = parseFloat(firstNumber) * parseFloat(zero.innerHTML);
           break;
         case "÷":
-          // result1=  parseFloat(firstNumber) / parseFloat(zero.innerHTML)
+        
 
           if (parseFloat(zero.innerHTML) != 0) {
             result1 = parseFloat(firstNumber) / parseFloat(zero.innerHTML);
@@ -67,7 +67,7 @@ function clickfunc(event) {
           result1 = parseFloat(firstNumber) * parseFloat(zero.innerHTML);
           break;
         case "÷":
-          // result1=  parseFloat(firstNumber) / parseFloat(zero.innerHTML)
+         
           if (parseFloat(zero.innerHTML) != 0) {
             result1 = parseFloat(firstNumber) / parseFloat(zero.innerHTML);
           } else {
@@ -76,20 +76,19 @@ function clickfunc(event) {
       }
       zero.innerHTML = result1;
 
-      // resultTop.innerHTML=""
+    
     }
 
-    history();
-    firstNumber=""
+    firstNumber = "";
     stop = true; //برای اینکه عدد بعد مساوی اپدیت شود
     condition = false; //برای انکه بعد وارد کردن عدد دوباره عملیات از سر گرفته شود
+    history();
 
-
-    zero.innerHTML = pow2; ///pow2
+    zero.innerHTML = pow2; //pow2
     resultTop.innerHTML = `sqr(${num}) `;
     zero.innerHTML = pow3; //pow3
     resultTop.innerHTML = `sqr(${num1}) `;
-    zero.innerHTML = sqr; //sqr
+    zero.innerHTML = sqr; //sqrt
     resultTop.innerHTML = `sqrt(${num2}) `;
     zero.innerHTML = res; //1/x
     resultTop.innerHTML = `1/(${x}) `;
@@ -158,10 +157,20 @@ function clickfunc(event) {
         zero.innerHTML = "-" + zero.innerHTML;
       }
     }
+  }else if (event.target.classList.contains("percent")){
+  
+
+      let currentNumber = parseFloat(zero.innerHTML);
+      let percentValue = currentNumber / 100;
+      zero.innerHTML = percentValue;
+      stop = true;
+   
+    
+
   }
 }
 
-/*---------------------------------------history--------------------------------------- */
+/*---------------------------------------history--memory--------------------------------------- */
 
 let textHistory = document.querySelector(".p-history");
 let historydiv = document.querySelector(".history");
@@ -174,7 +183,7 @@ function history() {
 
   let newdiv = document.createElement("div");
   newdiv.classList.add("newdivhistory");
-  historydiv.append(newdiv);
+  historydiv.appendChild(newdiv);
   let newp1 = document.createElement("p");
   newp1.classList.add("new1class");
   let newp2 = document.createElement("p");
@@ -183,12 +192,90 @@ function history() {
   newp1.innerHTML = resultTop.innerHTML + "=";
   newp2.innerHTML = zero.innerHTML;
 
-  newdiv.append(newp1);
-  newdiv.append(newp2);
+  newdiv.appendChild(newp1);
+  newdiv.appendChild(newp2);
+}
+
+let divHandM = document.querySelector(".left-text");
+let memoryDiv = document.querySelector(".memory-div");
+let historybtn = document.querySelector(".his-btn");
+let memorybtn = document.querySelector(".mem-btn");
+divHandM.addEventListener("click", hisandmemoryfun);
+
+function hisandmemoryfun(event) {
+  if (event.target.classList.contains("his-btn")) {
+    memoryDiv.style.width = "0";
+    historybtn.style.borderBottom = " 3px solid rgb(228, 137, 19)";
+    memorybtn.style.borderBottom = "none";
+  }
+  if (event.target.classList.contains("mem-btn")) {
+    memoryDiv.style.width = "380px";
+    memorybtn.style.borderBottom = " 3px solid rgb(228, 137, 19)";
+    historybtn.style.borderBottom = "none";
+  }
+}
+
+let mcbtn = document.querySelector(".MCbtn");
+let mrbtn = document.querySelector(".MRbtn");
+let Mplusbtn = document.querySelector(".Mplus");
+let Mminusbtn = document.querySelector(".Mminus");
+let MSbtn = document.querySelector(".MS");
+let memoryNum = document.querySelector(".memory-num");
+let memoryText = document.querySelector(".memory-text");
+let allmemorybtn = document.querySelector(".memory-btn");
+let memoryValue = null;
+
+allmemorybtn.addEventListener("click", allmemorybtnfun);
+
+function allmemorybtnfun(event) {
+  if (event.target.classList.contains("MS")) {
+    memoryValue = parseFloat(zero.innerHTML);
+    memoryNum.innerHTML = memoryValue;
+    memoryText.style.display = "none";
+    mcbtn.style.color = "black";
+    mrbtn.style.color = "black";
+    mcbtn.style.cursor = "pointer";
+    mrbtn.style.cursor = "pointer";
+  } else if (event.target.classList.contains("Mminus")) {
+    if (memoryValue !== null) {
+      memoryValue = memoryValue - parseFloat(zero.innerHTML);
+    } else {
+      memoryValue = 0 - parseFloat(zero.innerHTML);
+    }
+
+    memoryNum.innerHTML = memoryValue;
+    memoryText.style.display = "none";
+  } else if (event.target.classList.contains("Mplus")) {
+    if (memoryValue !== null) {
+      memoryValue = memoryValue + parseFloat(zero.innerHTML);
+    } else {
+      memoryValue = 0 + parseFloat(zero.innerHTML);
+    }
+
+    memoryNum.innerHTML = memoryValue;
+    memoryText.style.display = "none";
+  } else if (event.target.classList.contains("MRbtn")) {
+    if (memoryValue !== null) {
+      zero.innerHTML = memoryValue;
+      stop = false;
+    }
+  } else if (event.target.classList.contains("MCbtn")) {
+    memoryValue = null;
+    memoryText.style.display = "block";
+    memoryNum.innerHTML = "";
+  }
 }
 
 function Trashbtnfunc() {
+  let hitorytrash = document.querySelectorAll(".newdivhistory");
+
+  hitorytrash.forEach((element) => {
+    element.remove();
+  });
   textHistory.style.display = "block";
 
-  console.log("yes");
+  memoryNum.remove();
+  memoryText.style.display = "block";
+
+
 }
