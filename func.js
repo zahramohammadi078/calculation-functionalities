@@ -229,31 +229,29 @@ allmemorybtn.addEventListener("click", allmemorybtnfun);
 
 function allmemorybtnfun(event) {
   if (event.target.classList.contains("MS")) {
-    memoryValue = parseFloat(zero.innerHTML);
-    memoryNum.innerHTML = memoryValue;
-    memoryText.style.display = "none";
-    mcbtn.style.color = "black";
-    mrbtn.style.color = "black";
-    mcbtn.style.cursor = "pointer";
-    mrbtn.style.cursor = "pointer";
-  } else if (event.target.classList.contains("Mminus")) {
-    if (memoryValue !== null) {
-      memoryValue = memoryValue - parseFloat(zero.innerHTML);
-    } else {
-      memoryValue = 0 - parseFloat(zero.innerHTML);
-    }
+    if (!isNaN(parseFloat(zero.innerHTML))){
 
-    memoryNum.innerHTML = memoryValue;
+      memoryValue = parseFloat(zero.innerHTML);
+      memoryNum.innerHTML = memoryValue;
+      memoryText.style.display = "none";
+      mcbtn.style.color = "black";
+      mrbtn.style.color = "black";
+      mcbtn.style.cursor = "pointer";
+      mrbtn.style.cursor = "pointer";
+    }
+  } else if (event.target.classList.contains("Mminus")) {
+    if (!isNaN(parseFloat(zero.innerHTML))) {
+      memoryValue = (memoryValue !== null ? memoryValue : 0) - parseFloat(zero.innerHTML);
+      memoryNum.innerHTML = memoryValue;
+  }
+
     memoryText.style.display = "none";
   } else if (event.target.classList.contains("Mplus")) {
-    if (memoryValue !== null) {
-      memoryValue = memoryValue + parseFloat(zero.innerHTML);
-    } else {
-      memoryValue = 0 + parseFloat(zero.innerHTML);
-    }
+    if (!isNaN(parseFloat(zero.innerHTML))) {
+      memoryValue = (memoryValue !== null ? memoryValue : 0) + parseFloat(zero.innerHTML);
+      memoryNum.innerHTML = memoryValue;
+  }
 
-    memoryNum.innerHTML = memoryValue;
-    memoryText.style.display = "none";
   } else if (event.target.classList.contains("MRbtn")) {
     if (memoryValue !== null) {
       zero.innerHTML = memoryValue;
