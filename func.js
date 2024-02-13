@@ -7,9 +7,9 @@ let operator = "";
 let condition = false;
 let resultTop = document.querySelector('.result-top');
 
-btns.addEventListener("click", clickfunc);
 
-function clickfunc(event) {
+
+btns.addEventListener("click",(event) => {
   if (event.target.classList.contains("number")) {
     if (stop) {
       zero.innerHTML = event.target.innerHTML;
@@ -168,22 +168,22 @@ function clickfunc(event) {
     
 
   }
-}
+})
 
 /*---------------------------------------history--memory--------------------------------------- */
 
 let textHistory = document.querySelector(".p-history");
-let historydiv = document.querySelector(".history");
+let historydiv = document.querySelector(".text-his");
 let trashbtn = document.querySelector(".trash");
 
-trashbtn.addEventListener("click", Trashbtnfunc);
+
 
 function history() {
   textHistory.style.display = "none";
 
   let newdiv = document.createElement("div");
   newdiv.classList.add("newdivhistory");
-  historydiv.appendChild(newdiv);
+  historydiv.prepend(newdiv);
   let newp1 = document.createElement("p");
   newp1.classList.add("new1class");
   let newp2 = document.createElement("p");
@@ -225,9 +225,9 @@ let memoryText = document.querySelector(".memory-text");
 let allmemorybtn = document.querySelector(".memory-btn");
 let memoryValue = null;
 
-allmemorybtn.addEventListener("click", allmemorybtnfun);
 
-function allmemorybtnfun(event) {
+
+allmemorybtn.addEventListener("click",(event) =>{
   if (event.target.classList.contains("MS")) {
     memoryValue = parseFloat(zero.innerHTML);
     memoryNum.innerHTML = memoryValue;
@@ -264,9 +264,11 @@ function allmemorybtnfun(event) {
     memoryText.style.display = "block";
     memoryNum.innerHTML = "";
   }
-}
+})
 
-function Trashbtnfunc() {
+
+
+trashbtn.addEventListener("click",() => {
   let hitorytrash = document.querySelectorAll(".newdivhistory");
 
   hitorytrash.forEach((element) => {
@@ -278,7 +280,7 @@ function Trashbtnfunc() {
   memoryText.style.display = "block";
 
 
-}
+})
 
 /*---------------------------------------theme--------------------------------------- */
 
