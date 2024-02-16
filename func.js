@@ -84,14 +84,7 @@ btns.addEventListener("click",(event) => {
     condition = false; //برای انکه بعد وارد کردن عدد دوباره عملیات از سر گرفته شود
     history();
 
-    zero.innerHTML = pow2; //pow2
-    resultTop.innerHTML = `sqr(${num}) `;
-    zero.innerHTML = pow3; //pow3
-    resultTop.innerHTML = `sqr(${num1}) `;
-    zero.innerHTML = sqr; //sqrt
-    resultTop.innerHTML = `sqrt(${num2}) `;
-    zero.innerHTML = res; //1/x
-    resultTop.innerHTML = `1/(${x}) `;
+    
   } else if (event.target.classList.contains("clear")) {
     // zero.innerHTML=""
     firstNumber = "";
@@ -178,12 +171,17 @@ let trashbtn = document.querySelector(".trash");
 
 
 
+const MAX_HISTORY_ITEMS = 10; 
+let historyItems = []; 
+
 function history() {
   textHistory.style.display = "none";
 
+  
   let newdiv = document.createElement("div");
   newdiv.classList.add("newdivhistory");
-  historydiv.prepend(newdiv);
+  historydiv.prepend(newdiv); 
+
   let newp1 = document.createElement("p");
   newp1.classList.add("new1class");
   let newp2 = document.createElement("p");
@@ -192,8 +190,17 @@ function history() {
   newp1.innerHTML = resultTop.innerHTML + "=";
   newp2.innerHTML = zero.innerHTML;
 
-  newdiv.appendChild(newp1);
-  newdiv.appendChild(newp2);
+  newdiv.append(newp1);
+  newdiv.append(newp2);
+
+  
+  historyItems.push(newdiv);
+
+  
+  if (historyItems.length > MAX_HISTORY_ITEMS) {
+    historyItems[0].remove(); 
+    historyItems.shift(); 
+  }
 }
 
 let divHandM = document.querySelector(".left-text");
