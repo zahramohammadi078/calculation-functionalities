@@ -1,7 +1,5 @@
 
-::selection{
-    background: transparent;
-  }
+
   
 *{
     margin: 0;
@@ -77,6 +75,12 @@ body{
 
     font: 1rem 'Fira Sans', sans-serif;
      background-color:var(--all-background);
+     user-select: none;
+     transition: ease-in 0.5s;
+     -webkit-transition: ease-in 0.5s;
+     -moz-transition: ease-in 0.5s;
+     -ms-transition: ease-in 0.5s;
+     -o-transition: ease-in 0.5s;
 
 }
 
