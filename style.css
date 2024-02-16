@@ -1,508 +1,425 @@
-
-
-  
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /*---------------them---------------------*/
-.main{
-
-  --all-background:#e9e9e9; 
-  --icon-hover:#D3D3D3;
-  --mem-border-rad:0;
-  --mem-hover:#D3D3D3;
-  --num-background:#fff;
-  --num-border-radius:0;
-  --num-hover:#F8F8FF;
-  --sign-background:#DCDCDC;
-  --sign-border-radius:0;
-  --sign-hover:#D3D3D3;
-  --border:0 0 0 0;
+.main {
+  --all-background: #e9e9e9;
+  --icon-hover: #d3d3d3;
+  --mem-border-rad: 0;
+  --mem-hover: #d3d3d3;
+  --num-background: #fff;
+  --num-border-radius: 0;
+  --num-hover: #f8f8ff;
+  --sign-background: #dcdcdc;
+  --sign-border-radius: 0;
+  --sign-hover: #d3d3d3;
+  --border: 0 0 0 0;
 }
 
-.green{
-    --all-background:#c0eb87; 
-    --icon-hover:#43bb41;
-    --mem-border-rad:30px;
-    --mem-hover:#43bb41;
-    --num-background:#00A000;
-    --num-border-radius:30px;
-    --num-hover:#43b843;
-    --sign-background:#37C826;
-    --sign-border-radius:30px;
-    --sign-hover:#43bb41;
-    --border:30px 30px 30px 30px;
-
+.green {
+  --all-background: #c0eb87;
+  --icon-hover: #43bb41;
+  --mem-border-rad: 30px;
+  --mem-hover: #43bb41;
+  --num-background: #00a000;
+  --num-border-radius: 30px;
+  --num-hover: #43b843;
+  --sign-background: #37c826;
+  --sign-border-radius: 30px;
+  --sign-hover: #43bb41;
+  --border: 30px 30px 30px 30px;
 }
 
-.blue{
-
-    --all-background:#D0F5FF;
-    --icon-hover:#00AFFF;
-    --mem-border-rad:30px;
-    --mem-hover:#00AFFF;
-    --num-background:#007CB1;
-    --num-border-radius:30px;
-    --num-hover:#009EF7;
-    --sign-background:#3D9BD3;
-    --sign-border-radius:30px;
-    --sign-hover:#00AFFF;
-    --border:0 30px 0 30px;
-
+.blue {
+  --all-background: #d0f5ff;
+  --icon-hover: #00afff;
+  --mem-border-rad: 30px;
+  --mem-hover: #00afff;
+  --num-background: #007cb1;
+  --num-border-radius: 30px;
+  --num-hover: #009ef7;
+  --sign-background: #3d9bd3;
+  --sign-border-radius: 30px;
+  --sign-hover: #00afff;
+  --border: 0 30px 0 30px;
 }
 
-.pink{
-
-    --all-background:#FFE3F4;
-    --icon-hover:#EF1088;
-    --mem-border-rad:30px;
-    --mem-hover:#EF1088;
-    --num-background:#ba1971;
-    --num-border-radius:30px;
-    --num-hover:#9E0048;
-    --sign-background:#FF77CE;
-    --sign-border-radius:30px;
-    --sign-hover:#EF1088;
-    --border:50% 50% 50% 50%;
+.pink {
+  --all-background: #ffe3f4;
+  --icon-hover: #ef1088;
+  --mem-border-rad: 30px;
+  --mem-hover: #ef1088;
+  --num-background: #ba1971;
+  --num-border-radius: 30px;
+  --num-hover: #9e0048;
+  --sign-background: #ff77ce;
+  --sign-border-radius: 30px;
+  --sign-hover: #ef1088;
+  --border: 50% 50% 50% 50%;
 }
 /*-------------------------------------------*/
 
-body{
-
-    font: 1rem 'Fira Sans', sans-serif;
-     background-color:var(--all-background);
-     user-select: none;
-     transition: ease-in 0.5s;
-     -webkit-transition: ease-in 0.5s;
-     -moz-transition: ease-in 0.5s;
-     -ms-transition: ease-in 0.5s;
-     -o-transition: ease-in 0.5s;
-
+body {
+  font: 1rem "Fira Sans", sans-serif;
+  background-color: var(--all-background);
+  user-select: none;
+  transition: ease-in 0.5s;
+  -webkit-transition: ease-in 0.5s;
+  -moz-transition: ease-in 0.5s;
+  -ms-transition: ease-in 0.5s;
+  -o-transition: ease-in 0.5s;
 }
 
-.all-aitem{
-
-    width: 100vw;
-    height: 100vh;
-    min-height: 400px;
-    display: grid;
-    grid-template-columns: 3fr minmax(250px, 1fr);
-    grid-template-rows: 45px 2fr 4fr ;
-    grid-template-areas: 
-    'header header'
-    'row-up  history'
-    'button  history';
+.all-aitem {
+  width: 100vw;
+  height: 100vh;
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: 3fr minmax(250px, 1fr);
+  grid-template-rows: 45px 2fr 4fr;
+  grid-template-areas:
+    "header header"
+    "row-up  history"
+    "button  history";
 }
 
-.header{
-    
-    grid-area: header;
-    display: flex;
-    justify-content: space-between;
-    height: 25px;
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  height: 25px;
 }
 
-.text-header{
-
-    font-size: 14px;
-    padding: 3px 3px 3px 10px;
-    margin-left: 1px;
-
+.text-header {
+  font-size: 14px;
+  padding: 3px 3px 3px 10px;
+  margin-left: 1px;
 }
 
-.icon-header{
-
-    display: flex;
-    flex-direction: row-reverse;
+.icon-header {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 30px;
+  height: 100%;
+  width: 100%;
 }
 
-.icon-close:hover{
-
-    background-color: red;
-    cursor: pointer;
-    
+.icon-close:hover {
+  background-color: red;
+  cursor: pointer;
 }
 
-.icon-restor:hover{
-
-    background-color: darkgrey;
-    cursor: pointer;
-
+.icon-restor:hover {
+  background-color: darkgrey;
+  cursor: pointer;
 }
 
-.icon-minimize:hover{
-    
-    background-color: darkgrey;
-    cursor: pointer;
+.icon-minimize:hover {
+  background-color: darkgrey;
+  cursor: pointer;
 }
 
-.row-up{
-
-    grid-area: row-up;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+.row-up {
+  grid-area: row-up;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
-.left-3-item{
-
-    display: flex;
-    margin-left: 1px;
-    gap: 5px;
+.left-3-item {
+  display: flex;
+  margin-left: 1px;
+  gap: 5px;
 }
 
-
-.icon-bar:hover{
-
-    background-color: var(--icon-hover); 
-    border-radius: 3px;
-    cursor: pointer;
-    
+.icon-bar:hover {
+  background-color: var(--icon-hover);
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.text-left{
-
-    font-size:20px;
-    font-weight: 500;
-
+.text-left {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.icon-keep:hover{
-
-    background-color: #D3D3D3; 
-    border-radius: 3px;
-    cursor: pointer;
-    
+.icon-keep:hover {
+  background-color: #d3d3d3;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.zero{
-
-    font-size: 50px;
-    margin-top: 1px;
-    text-align: end;
-    font-weight: bold;
-     margin-right: 30px;
-    
+.zero {
+  font-size: 50px;
+  margin-top: 1px;
+  text-align: end;
+  font-weight: bold;
+  margin-right: 30px;
 }
 
-.memory-btn{
-
-    display: flex;
-    
+.memory-btn {
+  display: flex;
 }
 
-.memory{
-
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    border-radius: var(--mem-border-rad);
-    cursor: pointer;
-    height: 45px;
-    width: max(50px,10%);
-    border-radius: var(--border);
+.memory {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: var(--mem-border-rad);
+  cursor: pointer;
+  height: 45px;
+  width: max(50px, 10%);
+  border-radius: var(--border);
 }
 
-.memory1{
-      
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    height: 45px;
-    width: max(50px,10%);
-
+.memory1 {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  height: 45px;
+  width: max(50px, 10%);
 }
 
-.memory:hover{
-
-    background-color:var(--mem-hover); 
-    
+.memory:hover {
+  background-color: var(--mem-hover);
 }
 
-.button{
-
-    grid-area: button;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    
-
+.button {
+  grid-area: button;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.number{
-
-
-    width: 19.8%;
-    height: 19.6%;
-    background-color:var(--num-background);
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: var(--num-border-radius);
-    border-radius: var(--border);
+.number {
+  width: 19.8%;
+  height: 19.6%;
+  background-color: var(--num-background);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: var(--num-border-radius);
+  border-radius: var(--border);
 }
 
-.number:hover{
-    background-color:var(--num-hover);
+.number:hover {
+  background-color: var(--num-hover);
 }
 
-.sign{
-
-    width: 19.8%;
-    height: 19.6%;
-    background-color:var(--sign-background);
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: var(--sign-border-radius);
-    border-radius: var(--border);
-   
+.sign {
+  width: 19.8%;
+  height: 19.6%;
+  background-color: var(--sign-background);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--sign-border-radius);
+  border-radius: var(--border);
 }
 
-.sign:hover{
-
-    background-color:var(--sign-hover);
+.sign:hover {
+  background-color: var(--sign-hover);
 }
 
-.history{
-
-    grid-area: history;
-    margin-top: 5px;
-    scroll-behavior: auto;
-
+.history {
+  grid-area: history;
+  margin-top: 5px;
+  scroll-behavior: auto;
 }
 
-.left-text{
-    
-    display: flex;
-    gap: 15px;
+.left-text {
+  display: flex;
+  gap: 15px;
 }
 
-.his-btn{
-
-    border-bottom: 3px solid rgb(228, 137, 19);
-     cursor: pointer;
-
+.his-btn {
+  border-bottom: 3px solid rgb(228, 137, 19);
+  cursor: pointer;
 }
 .mem-btn {
-    cursor: pointer;
-  }
-.trash{
-    
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+  cursor: pointer;
+}
+.trash {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
-.trash:hover{
-    background-color: var(--sign-hover);
-
+.trash:hover {
+  background-color: var(--sign-hover);
 }
-.new1class{
-    text-align: right;
-    font-size: 20px;
-    padding-right: 10px;
-    color: darkgray;
-  }
-  
-  .new2class{
-    text-align: right;
-    font-size: 20px;
-    padding-right: 10px;
-    
-    padding: 10px;
-  
-  }
-
-  .result-top{
-   
-    margin-top: 1px;
-    text-align: end;
-    margin-right: 30px;
-    font-size:25px;
-    color: darkgray;
-    
-
+.new1class {
+  text-align: right;
+  font-size: 20px;
+  padding-right: 10px;
+  color: darkgray;
 }
 
-.newdivhistory{
-    width: 100%;
+.new2class {
+  text-align: right;
+  font-size: 20px;
+  padding-right: 10px;
+
+  padding: 10px;
+}
+
+.result-top {
+  margin-top: 1px;
+  text-align: end;
+  margin-right: 30px;
+  font-size: 25px;
+  color: darkgray;
+}
+
+.newdivhistory {
+  width: 100%;
   height: 100px;
-  
 }
 
-.newdivhistory:hover{
-
-    background-color: var(--sign-hover);
-
+.newdivhistory:hover {
+  background-color: var(--sign-hover);
 }
 /**/
 .memory-div {
-    position: absolute;
-    width: 0;
-    height: 90%;
-    background-color: var(--all-background);
-  }
-  
-  .memory-text {
-    margin-top: 40px;
-  }
-  .memory-num {
-    width: 100%;
-    height: 100%;
-    margin-top: 40px;
-    text-align: right;
-    font-size: 35px;
-    overflow: auto;
-  }
+  position: absolute;
+  width: 0;
+  height: 90%;
+  background-color: var(--all-background);
+}
 
-  .newdiv2 {
-    width: 100%;
-    height: 100px;
-  }
+.memory-text {
+  margin-top: 40px;
+}
+.memory-num {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  text-align: right;
+  font-size: 35px;
+  overflow: auto;
+}
 
+.newdiv2 {
+  width: 100%;
+  height: 100px;
+}
 
 /*----------------------500--width---------*/
-@media  screen and (max-width: 500px) {
-    body {
-        overflow: auto;
-      }
-    .history{
-        display: none;
-    }
-    .all-aitem{
-        min-width: 300px;
-        grid-template-columns: 100%;
-        grid-template-areas:
-        'header'
-        'row-up'
-        'button';
-    }
-    .memory-btn{
-        gap: 50px;
-    }
-
-    
+@media screen and (max-width: 500px) {
+  body {
+    overflow: auto;
+  }
+  .history {
+    display: none;
+  }
+  .all-aitem {
+    min-width: 300px;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "row-up"
+      "button";
+  }
+  .memory-btn {
+    gap: 50px;
+  }
 }
 /*----------------------1024--width---------*/
 
-@media  screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
+  .number {
+    width: 24.9%;
+    height: 16.5%;
+  }
+  .sign {
+    width: 24.9%;
+    height: 16.5%;
+  }
+  .num16 {
+    display: none;
+  }
 
+  .num6 {
+    order: -3;
+  }
 
-    .number{
+  .num1 {
+    order: -4;
+  }
 
-        width: 24.9%;
-        height: 16.5%;
-    }
-    .sign{
+  .num11 {
+    order: -2;
+  }
 
-        width: 24.9%;
-        height: 16.5%;
-
-    }
-    .num16{
-        display: none;
-    }
-    
-    .num6{
-        order: -3;
-    }
-    
-    .num1{
-        order: -4;
-    }
-    
-    .num11{
-        order: -2;
-    }
-    
-    .num21{
-        order: -1;
-    }
-     .memory{
-        width: 20%;
-        height: 40px;
-    }
-    .memory1{
-
-        width: 20%;
-        height: 40px;
-        
-    }
+  .num21 {
+    order: -1;
+  }
+  .memory {
+    width: 20%;
+    height: 40px;
+  }
+  .memory1 {
+    width: 20%;
+    height: 40px;
+  }
 }
 
 /*----------------------410--height---------*/
 @media screen and (max-height: 410px) {
-    .all-aitem {
-        min-height: 410px;
-    }
+  .all-aitem {
+    min-height: 410px;
   }
-
+}
 
 /*----------------------620--height-----------*/
 
-@media  screen and (max-height: 620px){
+@media screen and (max-height: 620px) {
+  .number {
+    width: 24.9%;
+    height: 16.5%;
+  }
+  .sign {
+    width: 24.9%;
+    height: 16.5%;
+  }
+  .num16 {
+    display: none;
+  }
 
-    .number{
+  .num6 {
+    order: -3;
+  }
 
-        width: 24.9%;
-        height: 16.5%;
-    }
-    .sign{
+  .num1 {
+    order: -4;
+  }
 
-        width: 24.9%;
-        height: 16.5%;
+  .num11 {
+    order: -2;
+  }
 
-    }
-    .num16{
-        display: none;
-    }
-    
-    .num6{
-        order: -3;
-    }
-    
-    .num1{
-        order: -4;
-    }
-    
-    .num11{
-        order: -2;
-    }
-    
-    .num21{
-        order: -1;
-    }
-
-
+  .num21 {
+    order: -1;
+  }
 }
-
-
-
-
-
-
-
-
-    
