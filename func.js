@@ -32,23 +32,24 @@ btns.addEventListener("click",(event) => {
       let result1;
       switch (operator) {
         case "-":
-          result1 = parseFloat(firstNumber) - parseFloat(zero.innerHTML);
+          result1 = parseFloat(firstNumber) - parseFloat(zero.innerHTML)
           break;
         case "+":
-          result1 = parseFloat(firstNumber) + parseFloat(zero.innerHTML);
+          result1 = parseFloat(firstNumber) + parseFloat(zero.innerHTML)
           break;
         case "×":
-          result1 = parseFloat(firstNumber) * parseFloat(zero.innerHTML);
+          result1 =parseFloat(firstNumber) * parseFloat(zero.innerHTML)
           break;
         case "÷":
         
 
           if (parseFloat(zero.innerHTML) != 0) {
-            result1 = parseFloat(firstNumber) / parseFloat(zero.innerHTML);
+            result1 = parseFloat(firstNumber) / parseFloat(zero.innerHTML)
           } else {
             result1 = "Cannot divide by zero";
           }
       }
+      
       zero.innerHTML = result1;
     }
   } else if (event.target.classList.contains("equals")) {
@@ -58,22 +59,23 @@ btns.addEventListener("click",(event) => {
       let result1;
       switch (operator) {
         case "-":
-          result1 = parseFloat(firstNumber) - parseFloat(zero.innerHTML);
+          result1 = parseFloat(firstNumber) - parseFloat(zero.innerHTML)
           break;
         case "+":
-          result1 = parseFloat(firstNumber) + parseFloat(zero.innerHTML);
+          result1 =parseFloat(firstNumber) + parseFloat(zero.innerHTML)
           break;
         case "×":
-          result1 = parseFloat(firstNumber) * parseFloat(zero.innerHTML);
+          result1 = parseFloat(firstNumber) * parseFloat(zero.innerHTML)
           break;
         case "÷":
          
           if (parseFloat(zero.innerHTML) != 0) {
-            result1 = parseFloat(firstNumber) / parseFloat(zero.innerHTML);
+            result1 =parseFloat(firstNumber) / parseFloat(zero.innerHTML)
           } else {
             result1 = "Cannot divide by zero";
           }
       }
+      
       zero.innerHTML = result1;
 
     
@@ -202,6 +204,7 @@ function history() {
     historyItems.shift(); 
   }
 }
+
 
 let divHandM = document.querySelector(".left-text");
 let memoryDiv = document.querySelector(".memory-div");
