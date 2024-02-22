@@ -1,15 +1,36 @@
-let btns = document.querySelector('.button');
+let btns = document.querySelector(".button");
 let stop = true;
-const zero = document.querySelector('.zero');
+const zero = document.querySelector(".zero");
 let firstNumber = "";
 let operator = "";
 // let secondNumber = "";
 let condition = false;
-let resultTop = document.querySelector('.result-top');
+let resultTop = document.querySelector(".result-top");
 
+function fourMainActions() {
+  let result1;
+  switch (operator) {
+    case "-":
+      result1 = parseFloat(firstNumber) - parseFloat(zero.innerHTML);
+      break;
+    case "+":
+      result1 = parseFloat(firstNumber) + parseFloat(zero.innerHTML);
+      break;
+    case "×":
+      result1 = parseFloat(firstNumber) * parseFloat(zero.innerHTML);
+      break;
+    case "÷":
+      if (parseFloat(zero.innerHTML) != 0) {
+        result1 = parseFloat(firstNumber) / parseFloat(zero.innerHTML);
+      } else {
+        result1 = "Cannot divide by zero";
+      }
+  }
 
+  zero.innerHTML = result1;
+}
 
-btns.addEventListener("click",(event) => {
+btns.addEventListener("click", (event) => {
   if (event.target.classList.contains("number")) {
     if (stop) {
       zero.innerHTML = event.target.innerHTML;
@@ -29,64 +50,19 @@ btns.addEventListener("click",(event) => {
     } else {
       resultTop.innerHTML = `${firstNumber} ${operator} ${zero.innerHTML}`;
 
-      let result1;
-      switch (operator) {
-        case "-":
-          result1 = parseFloat(firstNumber) - parseFloat(zero.innerHTML)
-          break;
-        case "+":
-          result1 = parseFloat(firstNumber) + parseFloat(zero.innerHTML)
-          break;
-        case "×":
-          result1 =parseFloat(firstNumber) * parseFloat(zero.innerHTML)
-          break;
-        case "÷":
-        
-
-          if (parseFloat(zero.innerHTML) != 0) {
-            result1 = parseFloat(firstNumber) / parseFloat(zero.innerHTML)
-          } else {
-            result1 = "Cannot divide by zero";
-          }
-      }
-      
-      zero.innerHTML = result1;
+      fourMainActions();
     }
   } else if (event.target.classList.contains("equals")) {
     if (firstNumber !== "" && operator !== "") {
       resultTop.innerHTML = `${firstNumber} ${operator} ${zero.innerHTML}`;
 
-      let result1;
-      switch (operator) {
-        case "-":
-          result1 = parseFloat(firstNumber) - parseFloat(zero.innerHTML)
-          break;
-        case "+":
-          result1 =parseFloat(firstNumber) + parseFloat(zero.innerHTML)
-          break;
-        case "×":
-          result1 = parseFloat(firstNumber) * parseFloat(zero.innerHTML)
-          break;
-        case "÷":
-         
-          if (parseFloat(zero.innerHTML) != 0) {
-            result1 =parseFloat(firstNumber) / parseFloat(zero.innerHTML)
-          } else {
-            result1 = "Cannot divide by zero";
-          }
-      }
-      
-      zero.innerHTML = result1;
-
-    
+      fourMainActions();
     }
 
     firstNumber = "";
     stop = true; //برای اینکه عدد بعد مساوی اپدیت شود
     condition = false; //برای انکه بعد وارد کردن عدد دوباره عملیات از سر گرفته شود
     history();
-
-    
   } else if (event.target.classList.contains("clear")) {
     // zero.innerHTML=""
     firstNumber = "";
@@ -152,18 +128,13 @@ btns.addEventListener("click",(event) => {
         zero.innerHTML = "-" + zero.innerHTML;
       }
     }
-  }else if (event.target.classList.contains("percent")){
-  
-
-      let currentNumber = parseFloat(zero.innerHTML);
-      let percentValue = currentNumber / 100;
-      zero.innerHTML = percentValue;
-      stop = true;
-   
-    
-
+  } else if (event.target.classList.contains("percent")) {
+    let currentNumber = parseFloat(zero.innerHTML);
+    let percentValue = currentNumber / 100;
+    zero.innerHTML = percentValue;
+    stop = true;
   }
-})
+});
 
 /*---------------------------------------history--memory--------------------------------------- */
 
@@ -171,18 +142,15 @@ let textHistory = document.querySelector(".p-history");
 let historydiv = document.querySelector(".text-his");
 let trashbtn = document.querySelector(".trash");
 
-
-
-const MAX_HISTORY_ITEMS = 10; 
-let historyItems = []; 
+const MAX_HISTORY_ITEMS = 10;
+let historyItems = [];
 
 function history() {
   textHistory.style.display = "none";
 
-  
   let newdiv = document.createElement("div");
   newdiv.classList.add("newdivhistory");
-  historydiv.prepend(newdiv); 
+  historydiv.prepend(newdiv);
 
   let newp1 = document.createElement("p");
   newp1.classList.add("new1class");
@@ -195,16 +163,12 @@ function history() {
   newdiv.append(newp1);
   newdiv.append(newp2);
 
-  
   historyItems.push(newdiv);
 
-  
   if (historyItems.length > MAX_HISTORY_ITEMS) {
-    historyItems[0].remove(); 
-    historyItems.shift(); 
+    historyItems.shift();
   }
 }
-
 
 let divHandM = document.querySelector(".left-text");
 let memoryDiv = document.querySelector(".memory-div");
@@ -235,9 +199,7 @@ let memoryText = document.querySelector(".memory-text");
 let allmemorybtn = document.querySelector(".memory-btn");
 let memoryValue = null;
 
-
-
-allmemorybtn.addEventListener("click",(event) =>{
+allmemorybtn.addEventListener("click", (event) => {
   if (event.target.classList.contains("MS")) {
     memoryValue = parseFloat(zero.innerHTML);
     memoryNum.innerHTML = memoryValue;
@@ -274,11 +236,9 @@ allmemorybtn.addEventListener("click",(event) =>{
     memoryText.style.display = "block";
     memoryNum.innerHTML = "";
   }
-})
+});
 
-
-
-trashbtn.addEventListener("click",() => {
+trashbtn.addEventListener("click", () => {
   let hitorytrash = document.querySelectorAll(".newdivhistory");
 
   hitorytrash.forEach((element) => {
@@ -288,9 +248,4 @@ trashbtn.addEventListener("click",() => {
 
   memoryNum.remove();
   memoryText.style.display = "block";
-
-
-})
-
-
-
+});
